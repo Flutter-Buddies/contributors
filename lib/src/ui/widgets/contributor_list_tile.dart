@@ -1,24 +1,30 @@
 import 'package:flutter/material.dart';
 
 class ContributorListTile extends StatelessWidget {
+  final String imageUrl;
+  final String name;
+  final int contributionsNumber;
+  final void Function() onTap;
+
+  const ContributorListTile({
+    Key key,
+    @required this.imageUrl,
+    @required this.name,
+    @required this.contributionsNumber,
+    @required this.onTap,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ListTile(
       leading: CircleAvatar(
-        backgroundImage: NetworkImage(
-          "https://miro.medium.com/max/1838/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg",
-        ),
+        backgroundImage: NetworkImage(imageUrl),
       ),
-      title: Text(
-        "Baby Yoda",
-      ),
+      title: Text(name),
       subtitle: Text(
-        "Contributions: 15",
+        "Contributions: $contributionsNumber",
       ),
-      onTap: () {
-        print("Baby Yoda Tapped!");
-        // TODO: go to contributor view
-      },
+      onTap: onTap,
     );
   }
 }
