@@ -63,7 +63,7 @@ class ContributorView extends StatelessWidget {
                           size: 25,
                         ),
                         title: Text(
-                          "Contributions",
+                          "Contributions (Flutter/flutter)",
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
