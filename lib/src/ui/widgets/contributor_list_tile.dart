@@ -1,3 +1,4 @@
+import 'package:contributors/src/app/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 class ContributorListTile extends StatelessWidget {
@@ -5,6 +6,7 @@ class ContributorListTile extends StatelessWidget {
   final String name;
   final int contributionsNumber;
   final void Function() onTap;
+  final Locale locale;
 
   const ContributorListTile({
     Key key,
@@ -12,6 +14,7 @@ class ContributorListTile extends StatelessWidget {
     @required this.name,
     @required this.contributionsNumber,
     @required this.onTap,
+    @required this.locale,
   }) : super(key: key);
 
   @override
@@ -22,7 +25,7 @@ class ContributorListTile extends StatelessWidget {
       ),
       title: Text(name),
       subtitle: Text(
-        "Contributions: $contributionsNumber",
+        "${Utils.getCurrentTranslation(locale).contributions}: $contributionsNumber",
       ),
       onTap: onTap,
     );

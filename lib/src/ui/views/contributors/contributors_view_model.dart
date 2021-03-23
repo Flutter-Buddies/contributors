@@ -43,6 +43,7 @@ class ContributorsViewModel extends CustomBaseViewModel {
     @required Contributor contributor,
     @required String ownerName,
     @required String repoName,
+    @required Locale locale,
   }) async {
     await Navigator.push(
       context,
@@ -51,6 +52,7 @@ class ContributorsViewModel extends CustomBaseViewModel {
           contributor: contributor,
           ownerName: ownerName,
           repoName: repoName,
+          locale: locale,
         ),
       ),
     );

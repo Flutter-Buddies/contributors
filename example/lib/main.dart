@@ -20,6 +20,8 @@ class Home extends StatelessWidget {
     return ContributorsView(
       ownerName: "Flutter-Buddies",
       repoName: "contributors",
+      locale: Locale("en"), // try this for english language
+      // locale: Locale("ar"), // try this for arabic language
     );
   }
 }
