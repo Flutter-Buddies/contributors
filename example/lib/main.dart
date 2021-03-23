@@ -17,6 +17,9 @@ class MyApp extends StatelessWidget {
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ContributorsView();
+    return ContributorsView(
+      ownerName: "YazeedAlKhalaf",
+      repoName: "contributors_ui",
+    );
   }
 }

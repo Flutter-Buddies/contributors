@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:github/github.dart';
 import 'package:stacked/stacked.dart';
 
 import 'package:contributors_ui/src/ui/widgets/contributor_list_tile.dart';
@@ -6,27 +9,62 @@ import 'package:contributors_ui/src/ui/widgets/contributor_list_tile.dart';
 import 'contributors_view_model.dart';
 
 class ContributorsView extends StatelessWidget {
+  final String ownerName;
+  final String repoName;
+
+  const ContributorsView({
+    Key key,
+    @required this.ownerName,
+    @required this.repoName,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<ContributorsViewModel>.reactive(
       viewModelBuilder: () => ContributorsViewModel(),
+      onModelReady: (ContributorsViewModel model) {
+        model.getContributorsStream(
+          ownerName: ownerName,
+          repoName: repoName,
+        );
+      },
       builder: (
         BuildContext context,
         ContributorsViewModel model,
         Widget child,
       ) {
         return Scaffold(
-          body: ListView.builder(
-            itemCount: 15,
-            itemBuilder: (BuildContext context, int index) {
-              return ContributorListTile(
-                imageUrl:
-                    "https://miro.medium.com/max/1838/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg",
-                name: "Baby Yoda",
-                contributionsNumber: 15,
-                onTap: () async {
-                  await model.navigateToContributorView(
-                    context: context,
+          body: StreamBuilder<List<Contributor>>(
+            stream: model.contributorsController.stream,
+            builder: (
+              BuildContext context,
+              AsyncSnapshot<List<Contributor>> snapshot,
+            ) {
+              final List<Contributor> contributorsList = snapshot.data;
+
+              if (contributorsList == null || contributorsList.isEmpty) {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+
+              return ListView.builder(
+                itemCount: contributorsList.length,
+                itemBuilder: (BuildContext context, int index) {
+                  final Contributor contributor = contributorsList[index];
+
+                  return ContributorListTile(
+                    imageUrl: contributor.avatarUrl,
+                    name: contributor.login,
+                    contributionsNumber: contributor.contributions,
+                    onTap: () async {
+                      await model.navigateToContributorView(
+                        context: context,
+                        contributor: contributor,
+                        ownerName: ownerName,
+                        repoName: repoName,
+                      );
+                    },
                   );
                 },
               );
