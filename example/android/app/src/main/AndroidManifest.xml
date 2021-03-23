@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="dev.alkhalaf.contributors_ui_example">
+    package="com.flutterbuddies.contributors_example">
    <application
-        android:label="contributors_ui_example"
+        android:label="contributors_example"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

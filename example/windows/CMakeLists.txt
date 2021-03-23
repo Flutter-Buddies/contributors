@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
-project(contributors_ui_example LANGUAGES CXX)
+project(contributors_example LANGUAGES CXX)
 
-set(BINARY_NAME "contributors_ui_example")
+set(BINARY_NAME "contributors_example")
 
 cmake_policy(SET CMP0063 NEW)
 

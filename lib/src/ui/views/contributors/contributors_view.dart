@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:github/github.dart';
 import 'package:stacked/stacked.dart';
 
-import 'package:contributors_ui/src/ui/widgets/contributor_list_tile.dart';
+import 'package:contributors/src/ui/widgets/contributor_list_tile.dart';
 
 import 'contributors_view_model.dart';
 

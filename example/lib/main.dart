@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:contributors_ui/contributors_ui.dart';
+import 'package:contributors/contributors.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,8 +18,8 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ContributorsView(
-      ownerName: "YazeedAlKhalaf",
-      repoName: "contributors_ui",
+      ownerName: "Flutter-Buddies",
+      repoName: "contributors",
     );
   }
 }

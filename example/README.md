@@ -1,1 +1,1 @@
-# contributors_ui_example
+# contributors_example

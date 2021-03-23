@@ -1,4 +1,4 @@
-package dev.alkhalaf.contributors_ui_example
+package com.flutterbuddies.contributors_example
 
 import io.flutter.embedding.android.FlutterActivity
 

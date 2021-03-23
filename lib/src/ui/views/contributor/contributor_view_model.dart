@@ -1,5 +1,5 @@
-import 'package:contributors_ui/src/app/services/github_service.dart';
-import 'package:contributors_ui/src/ui/global/custom_base_view_model.dart';
+import 'package:contributors/src/app/services/github_service.dart';
+import 'package:contributors/src/ui/global/custom_base_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:github/github.dart';
 

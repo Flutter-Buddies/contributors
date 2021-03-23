@@ -1,5 +1,5 @@
-name: contributors_ui_example
-description: Demonstrates how to use the contributors_ui plugin.
+name: contributors_example
+description: Demonstrates how to use the contributors plugin.
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 environment:
@@ -9,7 +9,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  contributors_ui:
+  contributors:
     path: ../
 
 dev_dependencies:
