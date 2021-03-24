@@ -1,3 +1,4 @@
+import 'package:contributors/src/ui/views/contributors_builder/contributors_builder_view.dart';
 import 'package:flutter/material.dart' show ListTile;
 import 'package:flutter/material.dart';
 import 'package:github/github.dart';
@@ -33,12 +34,6 @@ class ContributorsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<ContributorsViewModel>.reactive(
       viewModelBuilder: () => ContributorsViewModel(),
-      onModelReady: (ContributorsViewModel model) {
-        model.getContributorsStream(
-          ownerName: ownerName,
-          repoName: repoName,
-        );
-      },
       builder: (
         BuildContext context,
         ContributorsViewModel model,
@@ -49,20 +44,14 @@ class ContributorsView extends StatelessWidget {
               ? TextDirection.rtl
               : TextDirection.ltr,
           child: Scaffold(
-            body: StreamBuilder<List<Contributor>>(
-              stream: model.contributorsController.stream,
+            body: ContributorsBuilderView(
+              repoName: repoName,
+              ownerName: ownerName,
+              locale: locale,
               builder: (
                 BuildContext context,
-                AsyncSnapshot<List<Contributor>> snapshot,
+                List<Contributor> contributorsList,
               ) {
-                final List<Contributor> contributorsList = snapshot.data;
-
-                if (contributorsList == null || contributorsList.isEmpty) {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                }
-
                 return ListView.builder(
                   itemCount: contributorsList.length,
                   itemBuilder: (BuildContext context, int index) {
