@@ -5,12 +5,22 @@ import 'package:stacked/stacked.dart';
 
 import './contributor_view_model.dart';
 
+/// [ContributorView] is the ready to use UI that lists one contributor
+/// with their Name, Bio, Contributions Number, and more stats.
 class ContributorView extends StatelessWidget {
+  /// [contributor] provides info about the contributor.
   final Contributor contributor;
+
+  /// [repoName] is repo name that the contributor contributed to.
   final String repoName;
+
+  /// [ownerName] is the name of the owner of [repoName].
   final String ownerName;
+
+  /// [locale] is the [Locale] that you want the text to appear in.
   final Locale locale;
 
+  /// `ContributorView` is the default contructor for [ContributorView]
   const ContributorView({
     Key key,
     @required this.contributor,
@@ -58,7 +68,7 @@ class ContributorView extends StatelessWidget {
                         const SizedBox(height: 20),
                         Text(
                           model.user.name,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 25,
                             fontWeight: FontWeight.bold,
                           ),
@@ -70,7 +80,7 @@ class ContributorView extends StatelessWidget {
                               child: Text(
                                 model.user.bio,
                                 textAlign: TextAlign.center,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontSize: 22,
                                 ),
                               ),
@@ -91,15 +101,15 @@ class ContributorView extends StatelessWidget {
                                   size: 25,
                                 ),
                                 title: Text(
-                                  "${Utils.getCurrentTranslation(locale).contributions} ($ownerName/$repoName)",
-                                  style: TextStyle(
+                                  '${Utils.getCurrentTranslation(locale).contributions} ($ownerName/$repoName)',
+                                  style: const TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
                                 trailing: Text(
                                   contributor.contributions.toString(),
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -124,14 +134,14 @@ class ContributorView extends StatelessWidget {
                                 ),
                                 title: Text(
                                   Utils.getCurrentTranslation(locale).followers,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
                                 trailing: Text(
                                   model.user.followersCount.toString(),
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -151,14 +161,14 @@ class ContributorView extends StatelessWidget {
                                 ),
                                 title: Text(
                                   Utils.getCurrentTranslation(locale).following,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
                                 trailing: Text(
                                   model.user.followingCount.toString(),
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -184,14 +194,14 @@ class ContributorView extends StatelessWidget {
                                 title: Text(
                                   Utils.getCurrentTranslation(locale)
                                       .publicRepos,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
                                 trailing: Text(
                                   model.user.publicReposCount.toString(),
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -212,14 +222,14 @@ class ContributorView extends StatelessWidget {
                                 title: Text(
                                   Utils.getCurrentTranslation(locale)
                                       .publicGists,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
                                 trailing: Text(
                                   model.user.publicGistsCount.toString(),
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -233,7 +243,7 @@ class ContributorView extends StatelessWidget {
                       ],
                     ),
                   )
-                : Center(
+                : const Center(
                     child: CircularProgressIndicator(),
                   ),
           ),

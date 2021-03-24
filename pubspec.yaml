@@ -12,8 +12,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  stacked: ^1.9.7
   github: ^8.0.1
+  stacked: ^1.9.7
 
 dev_dependencies:
   flutter_test:
