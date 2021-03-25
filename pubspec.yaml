@@ -1,7 +1,7 @@
 name: contributors
 description: A Flutter package for showing contributors of a project on GitHub in a nice UI.
 version: 0.0.1
-author: Yazeed AlKhalaf <yazeedfady@gmail.com>
+# author: Yazeed AlKhalaf <yazeedfady@gmail.com>
 homepage: https://github.com/Flutter-Buddies/contributors
 
 environment:
