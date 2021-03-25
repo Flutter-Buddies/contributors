@@ -1,5 +1,10 @@
 # Contributors
 
+![Pub Version](https://img.shields.io/pub/v/contributors?style=for-the-badge)
+![GitHub](https://img.shields.io/github/license/flutter-buddies/contributors?style=for-the-badge)
+![GitHub Issues](https://img.shields.io/github/issues/flutter-buddies/contributors?style=for-the-badge)
+![GitHub Pull Requests](https://img.shields.io/github/issues-pr/flutter-buddies/contributors?style=for-the-badge)
+
 ## Features 🎮
 
 - 🎈 Ready to use UI for showing contributors.
