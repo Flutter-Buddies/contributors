@@ -15,7 +15,7 @@ class ContributorsViewModel extends CustomBaseViewModel {
   /// You need to provide all arguments, all are required.
   Future<void> navigateToContributorView({
     @required BuildContext context,
-    @required Contributor contributor,
+    @required ContributorStatistics contributorStatistics,
     @required String ownerName,
     @required String repoName,
     @required Locale locale,
@@ -24,7 +24,7 @@ class ContributorsViewModel extends CustomBaseViewModel {
       context,
       MaterialPageRoute<dynamic>(
         builder: (_) => ContributorView(
-          contributor: contributor,
+          contributorStatistics: contributorStatistics,
           ownerName: ownerName,
           repoName: repoName,
           locale: locale,

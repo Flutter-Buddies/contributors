@@ -50,22 +50,24 @@ class ContributorsView extends StatelessWidget {
               locale: locale,
               builder: (
                 BuildContext context,
-                List<Contributor> contributorsList,
+                List<ContributorStatistics> contributorStatisticsList,
               ) {
                 return ListView.builder(
-                  itemCount: contributorsList.length,
+                  itemCount: contributorStatisticsList.length,
                   itemBuilder: (BuildContext context, int index) {
-                    final Contributor contributor = contributorsList[index];
+                    final ContributorStatistics contributorStatistics =
+                        contributorStatisticsList[index];
+                    final User user = contributorStatistics.author;
 
                     return ContributorListTile(
-                      imageUrl: contributor.avatarUrl,
-                      name: contributor.login,
-                      contributionsNumber: contributor.contributions,
+                      imageUrl: user.avatarUrl,
+                      name: user.login,
+                      contributionsNumber: contributorStatistics.total,
                       locale: locale,
                       onTap: () async {
                         await model.navigateToContributorView(
                           context: context,
-                          contributor: contributor,
+                          contributorStatistics: contributorStatistics,
                           ownerName: ownerName,
                           repoName: repoName,
                           locale: locale,

@@ -9,7 +9,7 @@ import './contributor_view_model.dart';
 /// with their Name, Bio, Contributions Number, and more stats.
 class ContributorView extends StatelessWidget {
   /// [contributor] provides info about the contributor.
-  final Contributor contributor;
+  final ContributorStatistics contributorStatistics;
 
   /// [repoName] is repo name that the contributor contributed to.
   final String repoName;
@@ -23,7 +23,7 @@ class ContributorView extends StatelessWidget {
   /// `ContributorView` is the default contructor for [ContributorView]
   const ContributorView({
     Key key,
-    @required this.contributor,
+    @required this.contributorStatistics,
     @required this.repoName,
     @required this.ownerName,
     @required this.locale,
@@ -35,7 +35,7 @@ class ContributorView extends StatelessWidget {
       viewModelBuilder: () => ContributorViewModel(),
       onModelReady: (ContributorViewModel model) async {
         await model.init(
-          userLoginName: contributor.login,
+          userLoginName: contributorStatistics.author.login,
         );
       },
       builder: (
@@ -60,7 +60,7 @@ class ContributorView extends StatelessWidget {
                             CircleAvatar(
                               radius: 50,
                               backgroundImage: NetworkImage(
-                                contributor.avatarUrl,
+                                contributorStatistics.author.avatarUrl,
                               ),
                             ),
                           ],
@@ -108,7 +108,7 @@ class ContributorView extends StatelessWidget {
                                   ),
                                 ),
                                 trailing: Text(
-                                  contributor.contributions.toString(),
+                                  contributorStatistics.total.toString(),
                                   style: const TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,

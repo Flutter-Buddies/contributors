@@ -14,7 +14,7 @@ class ContributorsBuilderView extends StatelessWidget {
   /// if the list is empty or null before running `builder`, so no need to
   /// double check if it is empty. Though it wouldn't hurt to do it.
   /// Look at the source code for more info how this works behind the scenes.
-  final Widget Function(BuildContext, List<Contributor>) builder;
+  final Widget Function(BuildContext, List<ContributorStatistics>) builder;
 
   /// [ownerName] is the name of the owner of [repoName].
   final String ownerName;
@@ -39,7 +39,7 @@ class ContributorsBuilderView extends StatelessWidget {
     return ViewModelBuilder<ContributorsBuilderViewModel>.reactive(
       viewModelBuilder: () => ContributorsBuilderViewModel(),
       onModelReady: (ContributorsBuilderViewModel model) {
-        model.getContributorsStream(
+        model.getContributorStatistics(
           ownerName: ownerName,
           repoName: repoName,
         );
@@ -54,23 +54,14 @@ class ContributorsBuilderView extends StatelessWidget {
               ? TextDirection.rtl
               : TextDirection.ltr,
           child: Scaffold(
-            body: StreamBuilder<List<Contributor>>(
-              stream: model.contributorsController.stream,
-              builder: (
-                BuildContext context,
-                AsyncSnapshot<List<Contributor>> snapshot,
-              ) {
-                final List<Contributor> contributorsList = snapshot.data;
-
-                if (contributorsList == null || contributorsList.isEmpty) {
-                  return const Center(
+            body: model.contributorStatisticsList.isEmpty
+                ? const Center(
                     child: CircularProgressIndicator(),
-                  );
-                }
-
-                return builder(context, contributorsList);
-              },
-            ),
+                  )
+                : builder(
+                    context,
+                    model.contributorStatisticsList,
+                  ),
           ),
         );
       },

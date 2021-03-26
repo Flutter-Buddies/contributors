@@ -79,22 +79,79 @@ class CustomUI extends StatelessWidget {
       appBar: AppBar(),
       body: ContributorsBuilderView(
         ownerName: "Flutter-Buddies",
-        repoName: "contributors",
+        repoName: "tic-tac-no",
         locale: Locale("en"), // try this for english language
         // locale: Locale("ar"), // try this for arabic language
         builder: (
           BuildContext context,
-          List<Contributor> contributors,
+          List<ContributorStatistics> contributorStatisticsList,
         ) {
           return ListView.builder(
-            itemCount: contributors.length,
+            itemCount: contributorStatisticsList.length,
             itemBuilder: (
               BuildContext context,
               int index,
             ) {
-              final Contributor contributor = contributors[index];
+              final ContributorStatistics contributorStatistics =
+                  contributorStatisticsList[index];
 
-              return Text(contributor.login);
+              return Container(
+                color: index.isEven ? Colors.red : Colors.blue,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      contributorStatistics.author.login,
+                    ),
+                    SizedBox(
+                      height: 250,
+                      child: ListView.builder(
+                        itemCount: contributorStatistics.weeks.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Column(
+                            children: [
+                              Text(
+                                "Start: " +
+                                    DateTime.fromMillisecondsSinceEpoch(
+                                      contributorStatistics.weeks[index].start *
+                                          1000,
+                                    ).toString(),
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Text(
+                                "Commits: " +
+                                    contributorStatistics.weeks[index].commits
+                                        .toString(),
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Text(
+                                "Additions: " +
+                                    contributorStatistics.weeks[index].additions
+                                        .toString(),
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Text(
+                                "Deletions: " +
+                                    contributorStatistics.weeks[index].deletions
+                                        .toString(),
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              );
             },
           );
         },

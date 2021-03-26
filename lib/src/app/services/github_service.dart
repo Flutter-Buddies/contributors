@@ -15,12 +15,12 @@ class GithubService {
   ///
   /// * ownerName | the name of the owner e.g. "Flutter-Buddies"
   /// * repoName | the name of the repository e.g. "contributors"
-  Stream<Contributor> getContributorsOfRepository({
+  Future<List<ContributorStatistics>> getContributorsOfRepository({
     @required String ownerName,
     @required String repoName,
-  }) {
-    final Stream<Contributor> contributorStream =
-        _gitHub.repositories.listContributors(
+  }) async {
+    final List<ContributorStatistics> contributorStream =
+        await _gitHub.repositories.listContributorStats(
       RepositorySlug(ownerName, repoName),
     );
 

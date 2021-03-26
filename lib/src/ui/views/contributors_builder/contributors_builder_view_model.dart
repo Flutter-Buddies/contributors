@@ -11,37 +11,30 @@ import 'package:contributors/src/ui/global/custom_base_view_model.dart';
 class ContributorsBuilderViewModel extends CustomBaseViewModel {
   final GithubService _githubService = GithubService();
 
-  /// [contributorsController] is a stream controller that holds the list of
-  /// contributors in its stream.
-  final StreamController<List<Contributor>> contributorsController =
-      StreamController<List<Contributor>>();
+  List<ContributorStatistics> _contributorStatisticsList =
+      <ContributorStatistics>[];
 
-  @override
-  void dispose() {
-    contributorsController.close();
-    super.dispose();
+  /// `contributorStatisticsList` is the getter for `_contributorStatisticsList`.
+  List<ContributorStatistics> get contributorStatisticsList =>
+      _contributorStatisticsList;
+
+  /// [setContributorStatistics] is the setter for `_contributorStatisticsList`.
+  void setContributorStatistics(List<ContributorStatistics> newValue) {
+    _contributorStatisticsList = newValue;
+    notifyListeners();
   }
 
-  /// [getContributorsStream] method gets the stream of contributor and listens
-  /// to it then adds new contributors to the list. After that it adds the list
-  /// to the [contributorsController].
-  void getContributorsStream({
+  /// [getContributorStatistics] method gets a list of contributor statistics.
+  Future<void> getContributorStatistics({
     @required String ownerName,
     @required String repoName,
-  }) {
-    final List<Contributor> contributorsList = <Contributor>[];
-
-    final Stream<Contributor> contributorStream =
-        _githubService.getContributorsOfRepository(
+  }) async {
+    final List<ContributorStatistics> contributorStatisticsListTemp =
+        await _githubService.getContributorsOfRepository(
       ownerName: ownerName,
       repoName: repoName,
     );
 
-    contributorStream.listen((Contributor contributor) {
-      contributorsList.add(contributor);
-      notifyListeners();
-    });
-
-    contributorsController.add(contributorsList);
+    setContributorStatistics(contributorStatisticsListTemp);
   }
 }
