@@ -64,7 +64,7 @@ class ReadyUI extends StatelessWidget {
       appBar: AppBar(),
       body: ContributorsView(
         ownerName: "Flutter-Buddies",
-        repoName: "contributors",
+        repoName: "tic-tac-no",
         locale: Locale("en"), // try this for english language
         // locale: Locale("ar"), // try this for arabic language
       ),

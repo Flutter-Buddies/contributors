@@ -1,4 +1,5 @@
 import 'package:contributors/src/app/utils/utils.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 /// [ContributorListTile] is a widget used to show one contributor info when

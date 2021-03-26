@@ -9,6 +9,11 @@ import 'package:github/github.dart';
 class ContributorViewModel extends CustomBaseViewModel {
   final GithubService _githubService = GithubService();
 
+  final List<Color> gradientColors = <Color>[
+    const Color(0xff23b6e6),
+    const Color(0xff02d39a),
+  ];
+
   User _user;
 
   /// `getter` for private variable [_user] of type [User].

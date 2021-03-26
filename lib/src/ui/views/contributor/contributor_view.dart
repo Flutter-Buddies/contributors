@@ -1,4 +1,5 @@
 import 'package:contributors/src/app/utils/utils.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:github/github.dart';
 import 'package:stacked/stacked.dart';
@@ -118,6 +119,46 @@ class ContributorView extends StatelessWidget {
                               ),
                             ),
                           ],
+                        ),
+                        const SizedBox(height: 20),
+                        Container(
+                          padding: const EdgeInsets.only(right: 25),
+                          height: 150,
+                          child: LineChart(
+                            LineChartData(
+                              lineBarsData: <LineChartBarData>[
+                                LineChartBarData(
+                                  show: true,
+                                  spots: contributorStatistics.weeks
+                                      .map((ContributorWeekStatistics week) {
+                                    return FlSpot(
+                                      contributorStatistics.weeks
+                                          .indexOf(week)
+                                          .toDouble(),
+                                      week.commits.toDouble(),
+                                    );
+                                  }).toList(),
+                                  isCurved: true,
+                                  colors: model.gradientColors,
+                                  barWidth: 5,
+                                  isStrokeCapRound: true,
+                                  belowBarData: BarAreaData(
+                                    show: true,
+                                    colors: model.gradientColors
+                                        .map((Color color) =>
+                                            color.withOpacity(0.3))
+                                        .toList(),
+                                  ),
+                                ),
+                              ],
+                              borderData: FlBorderData(
+                                show: true,
+                                border: Border.all(
+                                  color: const Color(0xff37434d),
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
                         const SizedBox(height: 20),
                         Row(

@@ -14,6 +14,7 @@ dependencies:
 
   github: ^8.0.1
   stacked: ^1.9.7
+  fl_chart: ^0.30.0
 
 dev_dependencies:
   flutter_test:
