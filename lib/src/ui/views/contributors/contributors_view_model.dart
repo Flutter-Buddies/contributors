@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:contributors/src/app/utils/contributors_translations.dart';
 import 'package:flutter/material.dart';
 import 'package:github/github.dart';
 
@@ -19,6 +20,7 @@ class ContributorsViewModel extends CustomBaseViewModel {
     @required String ownerName,
     @required String repoName,
     @required Locale locale,
+    @required List<ContributorsTranslation> translations,
   }) async {
     await Navigator.push(
       context,
@@ -28,6 +30,7 @@ class ContributorsViewModel extends CustomBaseViewModel {
           ownerName: ownerName,
           repoName: repoName,
           locale: locale,
+          translations: translations,
         ),
       ),
     );

@@ -12,17 +12,26 @@ class Utils {
   /// English language constructor from [ContributorsTranslation] class.
   static ContributorsTranslation getCurrentTranslation(
     Locale locale,
+    List<ContributorsTranslation> translations,
   ) {
     if (locale == null) {
       return ContributorsTranslation.en();
     } else {
-      switch (locale.languageCode) {
-        case 'en':
-          return ContributorsTranslation.en();
-        case 'ar':
-          return ContributorsTranslation.ar();
-        default:
-          return ContributorsTranslation.en();
+      if (translations.isEmpty) {
+        switch (locale.languageCode) {
+          case 'en':
+            return ContributorsTranslation.en();
+          case 'ar':
+            return ContributorsTranslation.ar();
+          default:
+            return ContributorsTranslation.en();
+        }
+      } else {
+        return translations.firstWhere(
+          (ContributorsTranslation contributorsTranslation) =>
+              contributorsTranslation.languageCode == locale.languageCode,
+          orElse: () => ContributorsTranslation.en(),
+        );
       }
     }
   }

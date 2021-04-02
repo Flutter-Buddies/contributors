@@ -1,3 +1,4 @@
+import 'package:contributors/src/app/utils/contributors_translations.dart';
 import 'package:contributors/src/ui/views/contributors_builder/contributors_builder_view.dart';
 import 'package:flutter/material.dart' show ListTile;
 import 'package:flutter/material.dart';
@@ -22,12 +23,25 @@ class ContributorsView extends StatelessWidget {
   /// [locale] is the [Locale] that you want the text to appear in.
   final Locale locale;
 
+  /// [translations] is the `List<ContributorsTranslation>` you want to use, we
+  /// have defaults but you can add custom ones here.
+  /// This overrides the default supported languages which means you should add
+  /// every language you want to support inside this list. The built-in
+  /// translations are factory methods of [ContributorsTranslation].
+  ///
+  /// Example:
+  ///
+  /// * ContributorsTranslation.en()
+  /// * ContributorsTranslation.ar()
+  final List<ContributorsTranslation> translations;
+
   /// `ContributorsView` is the default contructor for [ContributorsView].
   const ContributorsView({
     Key key,
     @required this.ownerName,
     @required this.repoName,
     this.locale,
+    this.translations = const <ContributorsTranslation>[],
   }) : super(key: key);
 
   @override
@@ -40,7 +54,7 @@ class ContributorsView extends StatelessWidget {
         Widget child,
       ) {
         return Directionality(
-          textDirection: Utils.getCurrentTranslation(locale).isRTL
+          textDirection: Utils.getCurrentTranslation(locale, translations).isRTL
               ? TextDirection.rtl
               : TextDirection.ltr,
           child: Scaffold(
@@ -48,6 +62,7 @@ class ContributorsView extends StatelessWidget {
               repoName: repoName,
               ownerName: ownerName,
               locale: locale,
+              translations: translations,
               builder: (
                 BuildContext context,
                 List<ContributorStatistics> contributorStatisticsList,
@@ -64,6 +79,7 @@ class ContributorsView extends StatelessWidget {
                       name: user.login,
                       contributionsNumber: contributorStatistics.total,
                       locale: locale,
+                      translations: translations,
                       onTap: () async {
                         await model.navigateToContributorView(
                           context: context,
@@ -71,6 +87,7 @@ class ContributorsView extends StatelessWidget {
                           ownerName: ownerName,
                           repoName: repoName,
                           locale: locale,
+                          translations: translations,
                         );
                       },
                     );

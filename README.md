@@ -93,6 +93,10 @@ Currently we support:
 - English
 - Arabic
 
+You can add more languages by specifying the `translations` property on the widget you use, examples below.
+
+> Note that using `translations` requires you to add every language you want to use, even the factory methods of `ContributorsTranslation`.
+
 Example (Ready UI):
 
 ```dart
@@ -106,9 +110,20 @@ class ReadyUI extends StatelessWidget {
       appBar: AppBar(),
       body: ContributorsView(
         ownerName: "Flutter-Buddies",
-        repoName: "contributors",
+        repoName: "tic-tac-no",
         locale: Locale("en"), // try this for english language
         // locale: Locale("ar"), // try this for arabic language
+        translations: const <ContributorsTranslation>[
+          ContributorsTranslation(
+            languageCode: 'es',
+            contributions: 'Contribuciones',
+            followers: 'Seguidores',
+            following: 'Siguiendo',
+            publicRepos: 'Reposiciones Públicas',
+            publicGists: 'Gists Públicos',
+            isRTL: false,
+          ),
+        ],
       ),
     );
   }
@@ -131,6 +146,17 @@ class CustomUI extends StatelessWidget {
         repoName: "contributors",
         locale: Locale("en"), // try this for english language
         // locale: Locale("ar"), // try this for arabic language
+        translations: const <ContributorsTranslation>[
+          ContributorsTranslation(
+            languageCode: 'es',
+            contributions: 'Contribuciones',
+            followers: 'Seguidores',
+            following: 'Siguiendo',
+            publicRepos: 'Reposiciones Públicas',
+            publicGists: 'Gists Públicos',
+            isRTL: false,
+          ),
+        ],
         builder: (
           BuildContext context,
           List<Contributor> contributors,
