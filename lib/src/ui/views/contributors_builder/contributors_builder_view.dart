@@ -68,14 +68,52 @@ class ContributorsBuilderView extends StatelessWidget {
               ? TextDirection.rtl
               : TextDirection.ltr,
           child: Scaffold(
-            body: model.contributorStatisticsList.isEmpty
-                ? const Center(
-                    child: CircularProgressIndicator(),
-                  )
-                : builder(
+            // body: model.contributorStatisticsList.isEmpty
+            //     ? const Center(
+            //         child: CircularProgressIndicator(),
+            //       )
+            //     : builder(
+            //         context,
+            //         model.contributorStatisticsList,
+            //       ),
+            body: FutureBuilder<List<ContributorStatistics>>(
+              future: model.getContributorStatistics(
+                ownerName: ownerName,
+                repoName: repoName,
+              ),
+              builder: (
+                BuildContext context,
+                AsyncSnapshot<List<ContributorStatistics>> snapshot,
+              ) {
+                if (snapshot.hasError) {
+                  return Center(
+                    child: Text(
+                      Utils.getCurrentTranslation(locale, translations)
+                          .oopsSomethingWentWrong,
+                      style: const TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  );
+                }
+
+                if (snapshot.hasData) {
+                  final List<ContributorStatistics> contributorStatisticsList =
+                      snapshot.data;
+
+                  return builder(
                     context,
-                    model.contributorStatisticsList,
-                  ),
+                    contributorStatisticsList,
+                  );
+                }
+
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              },
+            ),
           ),
         );
       },

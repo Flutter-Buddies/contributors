@@ -26,6 +26,9 @@ class ContributorsTranslation {
   /// [publicGists] is the string for the word `Public Gists`.
   final String publicGists;
 
+  /// [oopsSomethingWentWrong] is the string `Oops! Something Went Wrong!`.
+  final String oopsSomethingWentWrong;
+
   /// [isRTL] is the `bool` that states whether the language is `RTL` or `LTR`.
   final bool isRTL;
 
@@ -39,6 +42,7 @@ class ContributorsTranslation {
     @required this.publicRepos,
     @required this.publicGists,
     @required this.isRTL,
+    @required this.oopsSomethingWentWrong,
   });
 
   /// `English` language translation
@@ -50,6 +54,7 @@ class ContributorsTranslation {
       following: 'Following',
       publicRepos: 'Public Repos',
       publicGists: 'Public Gists',
+      oopsSomethingWentWrong: 'Oops! Something Went Wrong!',
       isRTL: false,
     );
   }
@@ -63,6 +68,7 @@ class ContributorsTranslation {
       following: 'المتابَعون',
       publicRepos: 'المستودعات العامة',
       publicGists: 'المقتطفات العامة',
+      oopsSomethingWentWrong: 'عفواً، حدث خطأ ما!',
       isRTL: true,
     );
   }
@@ -76,6 +82,7 @@ class ContributorsTranslation {
       following: 'Sledování',
       publicRepos: 'Veřejné repozitáře',
       publicGists: 'Veřejné gisty',
+      oopsSomethingWentWrong: 'Jejda! Něco se pokazilo!',
       isRTL: false,
     );
   }

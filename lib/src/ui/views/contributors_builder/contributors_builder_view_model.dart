@@ -11,21 +11,8 @@ import 'package:contributors/src/ui/global/custom_base_view_model.dart';
 class ContributorsBuilderViewModel extends CustomBaseViewModel {
   final GithubService _githubService = GithubService();
 
-  List<ContributorStatistics> _contributorStatisticsList =
-      <ContributorStatistics>[];
-
-  /// `contributorStatisticsList` is the getter for `_contributorStatisticsList`.
-  List<ContributorStatistics> get contributorStatisticsList =>
-      _contributorStatisticsList;
-
-  /// [setContributorStatistics] is the setter for `_contributorStatisticsList`.
-  void setContributorStatistics(List<ContributorStatistics> newValue) {
-    _contributorStatisticsList = newValue;
-    notifyListeners();
-  }
-
   /// [getContributorStatistics] method gets a list of contributor statistics.
-  Future<void> getContributorStatistics({
+  Future<List<ContributorStatistics>> getContributorStatistics({
     @required String ownerName,
     @required String repoName,
   }) async {
@@ -35,6 +22,6 @@ class ContributorsBuilderViewModel extends CustomBaseViewModel {
       repoName: repoName,
     );
 
-    setContributorStatistics(contributorStatisticsListTemp);
+    return contributorStatisticsListTemp;
   }
 }
