@@ -64,7 +64,7 @@ class ReadyUI extends StatelessWidget {
       appBar: AppBar(),
       body: ContributorsView(
         ownerName: "Flutter-Buddies",
-        repoName: "tic-tac-no",
+        repoName: "contributors",
         locale: Locale("en"), // try this for english language
         // locale: Locale("ar"), // try this for arabic language
         translations: <ContributorsTranslation>[
@@ -93,7 +93,7 @@ class CustomUI extends StatelessWidget {
       appBar: AppBar(),
       body: ContributorsBuilderView(
         ownerName: "Flutter-Buddies",
-        repoName: "tic-tac-no",
+        repoName: "contributors",
         locale: Locale("en"), // try this for english language
         // locale: Locale("ar"), // try this for arabic language
         translations: <ContributorsTranslation>[
