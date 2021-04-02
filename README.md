@@ -90,8 +90,9 @@ Our way of handling localization works with every app. You just need to provide 
 
 Currently we support:
 
-- English
-- Arabic
+- English (en)
+- Arabic (ar)
+- Czech (cs)
 
 You can add more languages by specifying the `translations` property on the widget you use, examples below.
 
