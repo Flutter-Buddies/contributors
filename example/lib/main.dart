@@ -67,7 +67,10 @@ class ReadyUI extends StatelessWidget {
         repoName: "tic-tac-no",
         locale: Locale("en"), // try this for english language
         // locale: Locale("ar"), // try this for arabic language
-        translations: const <ContributorsTranslation>[
+        translations: <ContributorsTranslation>[
+          ContributorsTranslation.en(),
+          ContributorsTranslation.ar(),
+          ContributorsTranslation.cs(),
           ContributorsTranslation(
             languageCode: 'es',
             contributions: 'Contribuciones',
@@ -93,7 +96,10 @@ class CustomUI extends StatelessWidget {
         repoName: "tic-tac-no",
         locale: Locale("en"), // try this for english language
         // locale: Locale("ar"), // try this for arabic language
-        translations: const <ContributorsTranslation>[
+        translations: <ContributorsTranslation>[
+          ContributorsTranslation.en(),
+          ContributorsTranslation.ar(),
+          ContributorsTranslation.cs(),
           ContributorsTranslation(
             languageCode: 'es',
             contributions: 'Contribuciones',
