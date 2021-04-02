@@ -32,11 +32,13 @@ class ContributorsInfoListTile extends StatelessWidget {
         color: Theme.of(context).textTheme.bodyText1.color,
         size: 25,
       ),
-      title: Text(
-        title,
-        style: const TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
+      title: FittedBox(
+        child: Text(
+          title,
+          style: const TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
       trailing: Text(
