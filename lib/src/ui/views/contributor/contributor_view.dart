@@ -1,5 +1,6 @@
 import 'package:contributors/src/app/utils/contributors_translations.dart';
 import 'package:contributors/src/app/utils/utils.dart';
+import 'package:contributors/src/ui/views/contributor/widgets/info_list_tile.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:github/github.dart';
@@ -106,29 +107,12 @@ class ContributorView extends StatelessWidget {
                         Row(
                           children: <Widget>[
                             Expanded(
-                              child: ListTile(
-                                leading: Icon(
-                                  Icons.format_list_numbered_rounded,
-                                  color: Theme.of(context)
-                                      .textTheme
-                                      .bodyText1
-                                      .color,
-                                  size: 25,
-                                ),
-                                title: Text(
-                                  '${Utils.getCurrentTranslation(locale, translations).contributions} ($ownerName/$repoName)',
-                                  style: const TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                trailing: Text(
-                                  contributorStatistics.total.toString(),
-                                  style: const TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
+                              child: ContributorsInfoListTile(
+                                icon: Icons.format_list_numbered_rounded,
+                                title:
+                                    '${Utils.getCurrentTranslation(locale, translations).contributions} ($ownerName/$repoName)',
+                                trailing:
+                                    contributorStatistics.total.toString(),
                                 onTap: () {},
                               ),
                             ),
@@ -178,60 +162,22 @@ class ContributorView extends StatelessWidget {
                         Row(
                           children: <Widget>[
                             Expanded(
-                              child: ListTile(
-                                leading: Icon(
-                                  Icons.person_add,
-                                  color: Theme.of(context)
-                                      .textTheme
-                                      .bodyText1
-                                      .color,
-                                  size: 25,
-                                ),
-                                title: Text(
-                                  Utils.getCurrentTranslation(
-                                          locale, translations)
-                                      .followers,
-                                  style: const TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                trailing: Text(
-                                  model.user.followersCount.toString(),
-                                  style: const TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
+                              child: ContributorsInfoListTile(
+                                icon: Icons.person_add,
+                                title: Utils.getCurrentTranslation(
+                                        locale, translations)
+                                    .followers,
+                                trailing: model.user.followersCount.toString(),
                                 onTap: () {},
                               ),
                             ),
                             Expanded(
-                              child: ListTile(
-                                leading: Icon(
-                                  Icons.person_remove,
-                                  color: Theme.of(context)
-                                      .textTheme
-                                      .bodyText1
-                                      .color,
-                                  size: 25,
-                                ),
-                                title: Text(
-                                  Utils.getCurrentTranslation(
-                                          locale, translations)
-                                      .following,
-                                  style: const TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                trailing: Text(
-                                  model.user.followingCount.toString(),
-                                  style: const TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
+                              child: ContributorsInfoListTile(
+                                icon: Icons.person_remove,
+                                title: Utils.getCurrentTranslation(
+                                        locale, translations)
+                                    .following,
+                                trailing: model.user.followingCount.toString(),
                                 onTap: () {},
                               ),
                             ),
@@ -241,60 +187,24 @@ class ContributorView extends StatelessWidget {
                         Row(
                           children: <Widget>[
                             Expanded(
-                              child: ListTile(
-                                leading: Icon(
-                                  Icons.storage_rounded,
-                                  color: Theme.of(context)
-                                      .textTheme
-                                      .bodyText1
-                                      .color,
-                                  size: 25,
-                                ),
-                                title: Text(
-                                  Utils.getCurrentTranslation(
-                                          locale, translations)
-                                      .publicRepos,
-                                  style: const TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                trailing: Text(
-                                  model.user.publicReposCount.toString(),
-                                  style: const TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
+                              child: ContributorsInfoListTile(
+                                icon: Icons.storage_rounded,
+                                title: Utils.getCurrentTranslation(
+                                        locale, translations)
+                                    .publicRepos,
+                                trailing:
+                                    model.user.publicReposCount.toString(),
                                 onTap: () {},
                               ),
                             ),
                             Expanded(
-                              child: ListTile(
-                                leading: Icon(
-                                  Icons.sd_storage_rounded,
-                                  color: Theme.of(context)
-                                      .textTheme
-                                      .bodyText1
-                                      .color,
-                                  size: 25,
-                                ),
-                                title: Text(
-                                  Utils.getCurrentTranslation(
-                                          locale, translations)
-                                      .publicGists,
-                                  style: const TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                trailing: Text(
-                                  model.user.publicGistsCount.toString(),
-                                  style: const TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
+                              child: ContributorsInfoListTile(
+                                icon: Icons.sd_storage_rounded,
+                                title: Utils.getCurrentTranslation(
+                                        locale, translations)
+                                    .publicGists,
+                                trailing:
+                                    model.user.publicGistsCount.toString(),
                                 onTap: () {},
                               ),
                             ),
