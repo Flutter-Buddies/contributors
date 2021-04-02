@@ -66,4 +66,17 @@ class ContributorsTranslation {
       isRTL: true,
     );
   }
+
+  /// `Czech` language translation
+  factory ContributorsTranslation.cs() {
+    return const ContributorsTranslation(
+      languageCode: 'cs',
+      contributions: 'Příspěvky',
+      followers: 'Sledujících',
+      following: 'Sledování',
+      publicRepos: 'Veřejné repozitáře',
+      publicGists: 'Veřejné gisty',
+      isRTL: false,
+    );
+  }
 }

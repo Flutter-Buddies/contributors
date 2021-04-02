@@ -23,6 +23,8 @@ class Utils {
             return ContributorsTranslation.en();
           case 'ar':
             return ContributorsTranslation.ar();
+          case 'cs':
+            return ContributorsTranslation.cs();
           default:
             return ContributorsTranslation.en();
         }
