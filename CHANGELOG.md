@@ -1,6 +1,10 @@
 ## unreleased - unreleased
 
+## 0.0.2
+
 - Add new way of adding custom translations
+- Add screenshots to README.md
+- Check for null attributes
 
 ## 0.0.1
 
