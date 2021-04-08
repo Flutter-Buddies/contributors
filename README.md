@@ -14,9 +14,9 @@
 
 ## Screenshots
 
-| list of contributors                                                                                      | one contributor info                                                                                      |
-| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| <img src="https://github.com/Flutter-Buddies/contributors/tree/main/readme_images/1.png" width="240px" /> | <img src="https://github.com/Flutter-Buddies/contributors/tree/main/readme_images/2.png" width="240px" /> |
+| list of contributors                                                                                                | one contributor info                                                                                                |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| <img src="https://raw.githubusercontent.com/Flutter-Buddies/contributors/main/readme_images/1.png" width="240px" /> | <img src="https://raw.githubusercontent.com/Flutter-Buddies/contributors/main/readme_images/2.png" width="240px" /> |
 
 ## Usage 👷‍♂️
 
