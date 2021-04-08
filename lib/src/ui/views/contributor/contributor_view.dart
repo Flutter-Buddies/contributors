@@ -94,7 +94,7 @@ class ContributorView extends StatelessWidget {
                           children: <Widget>[
                             Expanded(
                               child: Text(
-                                model.user.bio,
+                                model.user.bio ?? '',
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(
                                   fontSize: 22,
@@ -112,7 +112,8 @@ class ContributorView extends StatelessWidget {
                                 title:
                                     '${Utils.getCurrentTranslation(locale, translations).contributions} ($ownerName/$repoName)',
                                 trailing:
-                                    contributorStatistics.total.toString(),
+                                    contributorStatistics.total?.toString() ??
+                                        '',
                                 onTap: () {},
                               ),
                             ),
@@ -167,7 +168,8 @@ class ContributorView extends StatelessWidget {
                                 title: Utils.getCurrentTranslation(
                                         locale, translations)
                                     .followers,
-                                trailing: model.user.followersCount.toString(),
+                                trailing:
+                                    model.user.followersCount?.toString() ?? '',
                                 onTap: () {},
                               ),
                             ),
@@ -177,7 +179,8 @@ class ContributorView extends StatelessWidget {
                                 title: Utils.getCurrentTranslation(
                                         locale, translations)
                                     .following,
-                                trailing: model.user.followingCount.toString(),
+                                trailing:
+                                    model.user.followingCount?.toString() ?? '',
                                 onTap: () {},
                               ),
                             ),
@@ -193,7 +196,8 @@ class ContributorView extends StatelessWidget {
                                         locale, translations)
                                     .publicRepos,
                                 trailing:
-                                    model.user.publicReposCount.toString(),
+                                    model.user.publicReposCount?.toString() ??
+                                        '',
                                 onTap: () {},
                               ),
                             ),
@@ -204,7 +208,8 @@ class ContributorView extends StatelessWidget {
                                         locale, translations)
                                     .publicGists,
                                 trailing:
-                                    model.user.publicGistsCount.toString(),
+                                    model.user.publicGistsCount?.toString() ??
+                                        '',
                                 onTap: () {},
                               ),
                             ),
