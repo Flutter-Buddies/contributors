@@ -63,8 +63,8 @@ class ReadyUI extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: ContributorsView(
-        ownerName: "Flutter-Buddies",
-        repoName: "contributors",
+        ownerName: "flutter",
+        repoName: "flutter",
         locale: Locale("en"), // try this for english language
         // locale: Locale("ar"), // try this for arabic language
         translations: <ContributorsTranslation>[
@@ -93,8 +93,8 @@ class CustomUI extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: ContributorsBuilderView(
-        ownerName: "Flutter-Buddies",
-        repoName: "contributors",
+        ownerName: "flutter",
+        repoName: "flutter",
         locale: Locale("en"), // try this for english language
         // locale: Locale("ar"), // try this for arabic language
         translations: <ContributorsTranslation>[

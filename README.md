@@ -12,6 +12,12 @@
 - 🚀 Data is directly from GitHub REST API v3.
 - 🌐 Translations support!
 
+## Screenshots
+
+| list of contributors                                                                                      | one contributor info                                                                                      |
+| --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| <img src="https://github.com/Flutter-Buddies/contributors/tree/main/readme_images/1.png" width="240px" /> | <img src="https://github.com/Flutter-Buddies/contributors/tree/main/readme_images/2.png" width="240px" /> |
+
 ## Usage 👷‍♂️
 
 There are three sections for the usage:
